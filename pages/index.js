@@ -1,6 +1,14 @@
 import Head from 'next/head'
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+const Home = () => {
+  const dispatch = useDispatch();
+  const beep = useSelector(state => state.main.beep)
 
-export default function Home() {
+  useEffect(() => {
+    dispatch({type: "HELLO_WORLD"})
+  }, [])
+
   return (
     <div className="container">
       <Head>
@@ -10,7 +18,7 @@ export default function Home() {
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome {beep} to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className="description">
@@ -202,3 +210,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home;
