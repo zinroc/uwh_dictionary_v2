@@ -15,7 +15,6 @@ class UWHApp extends App {
 
     return (
         <Provider store={store}>
-          <h1>Hello World</h1>
           <Component {...pageProps} />
         </Provider>
     );
