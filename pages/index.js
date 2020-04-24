@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { css } from 'emotion';
 
-import SearchBar from '../components/SearchBar';
-import DesktopFlowChart from '../components/DesktopFlowChart';
-import MobileFlowChart from '../components/MobileFlowChart';
-import Modal from '../components/Modal';
+import SearchBar from '../components/SkillSearchBar';
+import DesktopFlowChart from '../components/DesktopFlow';
+import MobileFlowChart from '../components/MobileFlow';
+import Modal from '../components/SkillModal';
 
 const Home = () => {
   const dispatch = useDispatch();
