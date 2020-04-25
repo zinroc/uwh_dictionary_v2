@@ -22,11 +22,12 @@ PhaseInfo.Phase_Keys.map(k => {
 const SearchBar = () => {
  	const dispatch = useDispatch();
  	const selectedPhaseKey = useSelector(state => state.main.selectedPhaseKey);
-
+ 	if (selectedPhaseKey) return null;
 	return (
 		<Select
 			instanceId={1}
 			options={options}
+			autoFocus
 			onChange={entry => {
 				const {value} = entry;
 				const phaseOption = PhaseInfo.Phase_Options[PhaseInfo.Phase_Options.findIndex(po => po.id === value.phase)];

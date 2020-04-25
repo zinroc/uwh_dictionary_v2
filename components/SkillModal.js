@@ -3,7 +3,6 @@
 import ReactModal from 'react-modal'
 import { useDispatch, useSelector } from 'react-redux';
 import { css } from 'emotion';
-import { useEffect } from 'react';
 
 import PhaseInfo from '../data/phase';
 
@@ -17,10 +16,6 @@ const Modal = () => {
   const selectedPhaseKey = useSelector(state => state.main.selectedPhaseKey);
   const selectedPhaseOption = useSelector(state => state.main.selectedPhaseOption);
 
-
-  useEffect(() => {
-  	document.activeElement.blur();
-  }, [])
 
   if (!selectedPhaseKey) return null;
 	return (
