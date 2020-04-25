@@ -79,10 +79,10 @@ const Modal = () => {
 		        );
 	        })}
 	        <a
-	        	href={`${location.protocol.concat('//').concat(location.host).concat(location.pathname)}?phaseKey=${selectedPhaseKey.id}&phase=${selectedPhaseOption.id}`}
+	        	href={`${location.protocol.concat('//').concat(location.host).concat(location.pathname)}?phase=${selectedPhaseOption.id}&key=${selectedPhaseKey.id}`}
 	        	target="_blank"
 	        >
-	        	{`${location.protocol.concat('//').concat(location.host).concat(location.pathname)}?phaseKey=${selectedPhaseKey.id}&phase=${selectedPhaseOption.id}`}
+	        	{`${location.protocol.concat('//').concat(location.host).concat(location.pathname)}?phase=${selectedPhaseOption.id}&key=${selectedPhaseKey.id}`}
 	        </a>
 	      </ReactModal>
       </div>

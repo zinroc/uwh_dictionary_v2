@@ -44,14 +44,12 @@ const Home = () => {
 
   useEffect(() => {
 
-    if (window.location.href.includes("?phaseKey=") && window.location.href.includes("&phase=")) {
+    if (window.location.href.includes("&key=") && window.location.href.includes("?phase=")) {
       
-      const phaseKeyId = parseInt(window.location.href.split("?phaseKey=")[1].split("&phase=")[0], 10);
-      const phaseId = parseInt(window.location.href.split("?phaseKey=")[1].split("&phase=")[1], 10);
+      const phaseId = parseInt(window.location.href.split("?phase=")[1].split("&key=")[0], 10);
+      const phaseKeyId = parseInt(window.location.href.split("?phase=")[1].split("&key=")[1], 10);
       const phaseIndex = PhaseInfo.Phase_Options.findIndex(po => po && po.id === phaseId);
-      console.log({Phase_Options: PhaseInfo.Phase_Options, phaseIndex});
       if (phaseIndex !== -1) {
-        console.log("###");
         const phase = PhaseInfo.Phase_Options[phaseIndex];
         const cardIndex = PhaseInfo.Cards.findIndex(c => c.phase === phaseId);
         const phaseKeysIndex = PhaseInfo.Phase_Keys.findIndex(pks => pks.phase === phaseId);
@@ -59,7 +57,6 @@ const Home = () => {
         const phaseKeyIndex = phaseKeys.keys.findIndex(pk => pk.id === phaseKeyId);
         if (cardIndex !== -1 && phaseKeyIndex !== -1)
         {
-          console.log("%%%");
           const phaseKey = phaseKeys.keys[phaseKeyIndex];
           const card = PhaseInfo.Cards[cardIndex].cards;
           dispatch({
