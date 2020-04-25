@@ -57,6 +57,10 @@ const Modal = () => {
 	        </button>
 	        <h3>{selectedPhaseOption.display_name}->{selectedPhaseKey.decision}->{selectedPhaseKey.card}->{selectedPhaseKey.name}</h3>
 
+			{PhaseInfo.Phase_Key_Values.findIndex(kValue => kValue && kValue.phase_key === selectedPhaseKey.id) === -1 &&
+				(<h2>
+					Video Coming Soon...
+				</h2>)}
 	        {PhaseInfo.Phase_Key_Values.map(kValue => {
 	        	if (kValue.phase_key !== selectedPhaseKey.id) return null;
 
@@ -65,15 +69,21 @@ const Modal = () => {
 	        			className={css`
 	        				max-width: 600px;
 	        			`}
+	        			key={kValue.value}
 	        		>
 		        		<img
-			        		key={`${kValue.value}`}
 			        		src={`/dictionary_values/${kValue.value}`}
 			        		width="100%"
 			        	/>
 		        	</div>
 		        );
 	        })}
+	        <a
+	        	href={`${location.protocol.concat('//').concat(location.host).concat(location.pathname)}?phaseKey=${selectedPhaseKey.id}&phase=${selectedPhaseOption.id}`}
+	        	target="_blank"
+	        >
+	        	{`${location.protocol.concat('//').concat(location.host).concat(location.pathname)}?phaseKey=${selectedPhaseKey.id}&phase=${selectedPhaseOption.id}`}
+	        </a>
 	      </ReactModal>
       </div>
 	);

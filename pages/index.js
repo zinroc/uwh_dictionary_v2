@@ -3,14 +3,81 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { css } from 'emotion';
 
+import PhaseInfo from '../data/phase';
 import SearchBar from '../components/SkillSearchBar';
 import DesktopFlowChart from '../components/DesktopFlow';
 import MobileFlowChart from '../components/MobileFlow';
 import Modal from '../components/SkillModal';
 
+import {
+  SELECT_PHASE_OPTION,
+  SELECT_PHASE_KEY,
+  SELECT_PHASE_CARD
+} from '../redux/modules/main';
+
 const Home = () => {
   const dispatch = useDispatch();
   const selectedPhaseKey = useSelector(state => state.main.selectedPhaseKey);
+
+  const selectedPhaseOption = useSelector(state => state.main.selectedPhaseOption);
+  const selectedCards = useSelector(state => {
+    if (!state.main.selectedPhaseOption) return null;
+
+    let s_cards = [];
+    PhaseInfo.Cards.map(c => {
+      if (c.phase === state.main.selectedPhaseOption.id) s_cards = [...c.cards];
+      return true;
+    })
+    return s_cards;
+  })
+
+  const selectedPhaseKeys = useSelector(state => {
+    if (!state.main.selectedPhaseOption) return null;
+
+    let s_keys = [];
+    PhaseInfo.Phase_Keys.map(pks => {
+      if (pks.phase === state.main.selectedPhaseOption.id) s_keys = pks.keys;
+      return true;
+    })
+    return s_keys;
+  })
+
+  useEffect(() => {
+
+    if (window.location.href.includes("?phaseKey=") && window.location.href.includes("&phase=")) {
+      
+      const phaseKeyId = parseInt(window.location.href.split("?phaseKey=")[1].split("&phase=")[0], 10);
+      const phaseId = parseInt(window.location.href.split("?phaseKey=")[1].split("&phase=")[1], 10);
+      const phaseIndex = PhaseInfo.Phase_Options.findIndex(po => po && po.id === phaseId);
+      console.log({Phase_Options: PhaseInfo.Phase_Options, phaseIndex});
+      if (phaseIndex !== -1) {
+        console.log("###");
+        const phase = PhaseInfo.Phase_Options[phaseIndex];
+        const cardIndex = PhaseInfo.Cards.findIndex(c => c.phase === phaseId);
+        const phaseKeysIndex = PhaseInfo.Phase_Keys.findIndex(pks => pks.phase === phaseId);
+        const phaseKeys = PhaseInfo.Phase_Keys[phaseKeysIndex];
+        const phaseKeyIndex = phaseKeys.keys.findIndex(pk => pk.id === phaseKeyId);
+        if (cardIndex !== -1 && phaseKeyIndex !== -1)
+        {
+          console.log("%%%");
+          const phaseKey = phaseKeys.keys[phaseKeyIndex];
+          const card = PhaseInfo.Cards[cardIndex].cards;
+          dispatch({
+            type: SELECT_PHASE_OPTION,
+            phaseOption: phase
+          })
+          dispatch({
+            type: SELECT_PHASE_CARD,
+            phaseCard: card
+          })
+          dispatch({
+            type: SELECT_PHASE_KEY,
+            phaseKey: phaseKey
+          })
+        }
+      }
+    }
+  }, [])
 
   return (
     <div className="container">
@@ -27,7 +94,11 @@ const Home = () => {
           <SearchBar />
           <h3>Otherwise, look for it in the contextual flow chart below</h3>
 
-          <DesktopFlowChart />
+          <DesktopFlowChart
+            selectedPhaseOption={selectedPhaseOption}
+            selectedCards={selectedCards}
+            selectedPhaseKeys={selectedPhaseKeys}
+          />
           <MobileFlowChart />
           <Modal />
         </div>

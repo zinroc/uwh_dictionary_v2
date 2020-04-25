@@ -7,9 +7,9 @@ const PhaseInfo = {}
 
 PhaseInfo.Phase_Options = [
     {id: 1, display_name: "Wall_Left", name: "Wall_Left", x: 40.9, y: 39, width: 2, height: 3, panel_height: 790, super_phases: []},
-    {id: 2, display_name: "Puck_Collection", name: "Puck_Collection", x: 56.1, y: 46.7, width: 8, height: 13.3, panel_height: 1600, super_phases: [{id: 4, x: 500, y: 1200}]},
+    {id: 2, display_name: "Puck_Collection", name: "Puck_Collection", x: 56.1, y: 46.7, width: 8, height: 13.3, panel_height: 1600, super_phases: [{id: 4, x: 400, y: 1200}]},
     //{id: 3, display_name: "Claim_Empty_Space", name: "Puck_Distribution", x: 3.5, y: 5, width: 0, height: 0, el: null, super_phases: [{id: 2, x: 31, y: 15, height: 35, width: 165}, {id: 4, x: 31, y: 90, height: 35, width: 165}]},
-    {id: 4, display_name: "Eliminate_Opposing_Player", name: "Formation_Displacement", x: 3.5, y: 9, width: 0, height: 0, panel_height: 1600,  super_phases: [{id: 2, x: 500, y: 850}]},
+    {id: 4, display_name: "Eliminate_Opposing_Player", name: "Formation_Displacement", x: 3.5, y: 9, width: 0, height: 0, panel_height: 1600,  super_phases: [{id: 2, x: 400, y: 850}]},
     {id: 5, display_name: "Getting_Into_Position", name: "Getting_Into_Position", x: 19.5, y: 54, width: 8, height: 13, panel_height: 790,  super_phases: [{id: 2, x: 400, y: 1200}]},
     {id: 6, display_name: "Wall_Right", name: "Wall_Right", x: 49, y: 56, width: 3, height: 5, panel_height: 790, super_phases: []}
 ];
@@ -18,9 +18,9 @@ PhaseInfo.Pucks = [
     {
         phase: 1,
         pucks: [
-            {id: 1, name: "Advancing", pin: {x: 100, y: 0}, tracks: [], arrows: [{mini_track: null, direction: "down"}]},
-            {id: 2, name: "Stalling", pin: {x: 500, y: 0}, tracks: [], arrows: [{mini_track: null, direction: "down"}]},
-            {id: 3, name: "Leaving", pin: {x: 900, y: 0}, tracks: [], arrows: [{mini_track: null, direction:"down"}]}
+            {id: 1, name: "Advancing", pin: {x: 0, y: 0}, tracks: [], arrows: [{mini_track: null, direction: "down"}]},
+            {id: 2, name: "Stalling", pin: {x: 400, y: 0}, tracks: [], arrows: [{mini_track: null, direction: "down"}]},
+            {id: 3, name: "Leaving", pin: {x: 800, y: 0}, tracks: [], arrows: [{mini_track: null, direction:"down"}]}
         ]
     },
     {
@@ -29,19 +29,19 @@ PhaseInfo.Pucks = [
             {
                 id: 1,
                 name: "First_Contact",
-                pin: {x: 500, y: 0},
+                pin: {x: 400, y: 0},
                 tracks: [{length: 300, pin: {x: 0, y: 0}, rotation: 0}],
                 arrows: [{mini_track: { height: 1300, pin: {x: 255, y: 0}}, direction:"right"}]
             },
             {
                 id: 2,
                 name: "Deal_With_Threats",
-                pin: {x: 500, y: 400},
+                pin: {x: 400, y: 400},
                 tracks: [{length: 700, pin: {x: 0, y: 0}, rotation: 0}, {length: 500, pin: {x: -125, y: 300}, rotation: 30}],
                 arrows: [{mini_track: { height: 300, pin: {x: -115, y: -100}}, direction:"left"}]
             },
-            {id: 3, name: "Eliminate_Opposing_Player", pin: {x: 500, y: 1200}, tracks: [], arrows: [], click: "Formation_Displacement"},
-            {id: 4, name: "Claim_Empty_Space", pin: {x: 200, y: 1200}, tracks: [], arrows: []}
+            {id: 3, name: "Eliminate_Opposing_Player", pin: {x: 400, y: 1200}, tracks: [], arrows: [], click: "Formation_Displacement"},
+            {id: 4, name: "Claim_Empty_Space", pin: {x: 100, y: 1200}, tracks: [], arrows: []}
         ]
     },
     /** {
@@ -58,7 +58,7 @@ PhaseInfo.Pucks = [
             {
                 id: 1,
                 name: "Opponents_Orientation",
-                pin: {x: 500, y: 0},
+                pin: {x: 400, y: 0},
                 tracks: [{length: 400, pin: {x: 0, y: 0}, rotation: 0}],
                 arrows: [
                     {mini_track: {height: 1200, pin: {x: -180, y: 0}}, direction:"left", subtitle: {name: "side_by_side", pin: {x: -450, y: 0}}},
@@ -66,8 +66,8 @@ PhaseInfo.Pucks = [
                     {mini_track: {height: 900, pin: {x: 310, y: 0}}, direction:"right", subtitle: {name: "head_on", pin: {x: 350, y: 0}}}
                 ]
             },
-            {id: 2, name: "Steal_Opponents_Position", pin: {x: 500, y: 400}, tracks: [{length: 400, pin: {x: 0, y: 0}, rotation: 0}], arrows: []},
-            {id: 3, name: "Puck_Collection", pin: {x: 500, y: 850}, tracks: [], arrows: [], click: "Puck_Collection"}
+            {id: 2, name: "Steal_Opponents_Position", pin: {x: 400, y: 400}, tracks: [{length: 400, pin: {x: 0, y: 0}, rotation: 0}], arrows: []},
+            {id: 3, name: "Puck_Collection", pin: {x: 400, y: 850}, tracks: [], arrows: [], click: "Puck_Collection"}
         ]
     },
     {
@@ -107,9 +107,9 @@ PhaseInfo.Pucks = [
     {
         phase: 6,
         pucks: [
-            {id: 1, name: "Advancing", pin: {x: 100, y: 0}, tracks: [], arrows: [{mini_track: null, direction:"down"}]},
-            {id: 2, name: "Stalling", pin: {x: 500, y: 0}, tracks: [], arrows: [{mini_track: null, direction:"down"}]},
-            {id: 3, name: "Leaving", pin: {x: 900, y: 0}, tracks: [], arrows: [{mini_track: null, direction:"down"}]}
+            {id: 1, name: "Advancing", pin: {x: 0, y: 0}, tracks: [], arrows: [{mini_track: null, direction:"down"}]},
+            {id: 2, name: "Stalling", pin: {x: 400, y: 0}, tracks: [], arrows: [{mini_track: null, direction:"down"}]},
+            {id: 3, name: "Leaving", pin: {x: 800, y: 0}, tracks: [], arrows: [{mini_track: null, direction:"down"}]}
         ]
     }
 ];
@@ -118,11 +118,11 @@ PhaseInfo.Cards = [
     {
         phase: 4,
         cards: [
-            {title: "left_option", decision: "head_on", pin: {x: 850, y: 150}},
-            {title: "right_option", decision: "head_on", pin: {x: 850, y: 550}},
-            {title: "outside_options", decision: "side_by_side", pin: {x: 100, y: 100}},
-            {title: "cut_in_left", decision: "side_by_side", pin: {x: 100, y: 265}},
-            {title: "cut_in_right", decision: "side_by_side", pin: {x: 100, y: 700}},
+            {title: "left_option", decision: "head_on", pin: {x: 770, y: 100}},
+            {title: "right_option", decision: "head_on", pin: {x: 770, y: 450}},
+            {title: "outside_options", decision: "side_by_side", pin: {x: 50, y: 50}},
+            {title: "cut_in_left", decision: "side_by_side", pin: {x: 50, y: 200}},
+            {title: "cut_in_right", decision: "side_by_side", pin: {x: 50, y: 550}},
             // {title: "forward_options", decision: "behind_under", pin: {x: 850, y: 265}},
             // {title: "left_option", decision: "behind_under", pin: {x: 850, y: 450}},
             // {title: "right_option", decision: "behind_under", pin: {x: 850, y: 650}}
@@ -142,29 +142,29 @@ PhaseInfo.Cards = [
     {
         phase: 2,
         cards: [
-            {title: "cw_backpick", decision: "first_contact", pin: {x: 720, y: 90}, border: "left"},
-            {title: "ccw_backpick", decision: "first_contact", pin: {x: 720, y: 210}, border: "left"},
-            {title: "smash", decision: "first_contact", pin: {x: 720, y: 355}, border: "left"},
-            {title: "ccw_tackle", decision: "first_contact", pin: {x: 720, y: 610}, border: "left"},
+            {title: "cw_backpick", decision: "first_contact", pin: {x: 720, y: 0}, border: "left"},
+            {title: "ccw_backpick", decision: "first_contact", pin: {x: 720, y: 170}, border: "left"},
+            {title: "smash", decision: "first_contact", pin: {x: 720, y: 365}, border: "left"},
+            {title: "ccw_tackle", decision: "first_contact", pin: {x: 720, y: 570}, border: "left"},
             {title: "cw_tackle", decision: "first_contact", pin: {x: 720, y: 730}, border: "left"},
-            {title: "void", decision: "first_contact", pin: {x: 720, y: 825}, border: "left"},
-            {title: "protect_and_stall", decision: "Deal_With_Threats", pin: {x: 15, y: 225}, border: "right"},
+            {title: "void", decision: "first_contact", pin: {x: 720, y: 865}, border: "left"},
+            {title: "protect_and_stall", decision: "Deal_With_Threats", pin: {x: 80, y: 280}, border: "right"},
         ]
     },
     {
         phase: 6,
         cards: [
-            {title: "Advancing", decision: "Wall_Right", pin: {x: 100, y: 300}},
-            {title: "Stalling", decision: "Wall_Right", pin: {x: 500, y: 300}},
-            {title: "Leaving", decision: "Wall_Right", pin: {x: 900, y: 300}}
+            {title: "Advancing", decision: "Wall_Right", pin: {x: 50, y: 300}},
+            {title: "Stalling", decision: "Wall_Right", pin: {x: 450, y: 300}},
+            {title: "Leaving", decision: "Wall_Right", pin: {x: 850, y: 300}}
         ]
     },
     {
         phase: 1,
         cards: [
-            {title: "Advancing", decision: "Wall_Left", pin: {x: 100, y: 300}},
-            {title: "Stalling", decision: "Wall_Left", pin: {x: 500, y: 300}},
-            {title: "Leaving", decision: "Wall_Left", pin: {x: 900, y: 300}}
+            {title: "Advancing", decision: "Wall_Left", pin: {x: 50, y: 300}},
+            {title: "Stalling", decision: "Wall_Left", pin: {x: 450, y: 300}},
+            {title: "Leaving", decision: "Wall_Left", pin: {x: 850, y: 300}}
         ]
     }
 ];
@@ -285,14 +285,14 @@ PhaseInfo.Phase_Keys = [
                 id: 27,
                 decision: "get_down",
                 card: "dives",
-                name: "s_dive",
+                name: "duck_dive",
                 active: true
             },
             {
                 id: 28,
                 decision: "get_down",
                 card: "dives",
-                name: "duck_dive",
+                name: "pike_dive",
                 active: true
             },
             {
@@ -348,7 +348,7 @@ PhaseInfo.Phase_Keys = [
                 id: 69,
                 decision: "choose_body_position",
                 card: "behind_puck",
-                name: "fin_first",
+                name: "belly_up",
                 active: true
             },
             {
