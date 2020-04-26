@@ -267,7 +267,7 @@ PhaseInfo.Phase_Keys = [
                 id: 28,
                 decision: "get_down",
                 card: "dives",
-                name: "pike_dive",
+                name: "frog_dive",
                 active: true
             },
             {
