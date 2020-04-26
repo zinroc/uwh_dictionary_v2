@@ -57,7 +57,12 @@ const Modal = () => {
 	        >
 	          X
 	        </button>
-	        <h3>{selectedPhaseOption.display_name}->{selectedPhaseKey.decision}->{selectedPhaseKey.card}->{selectedPhaseKey.name}</h3>
+	        <h3>
+	        	{selectedPhaseOption.display_name}
+	        	{selectedPhaseKey.decision !== selectedPhaseOption.display_name && `->${selectedPhaseKey.decision}`}
+	        	->{selectedPhaseKey.card}
+	        	->{selectedPhaseKey.name}
+	        </h3>
 
 			{PhaseInfo.Phase_Key_Values.findIndex(kValue => kValue && kValue.phase_key === selectedPhaseKey.id) === -1 &&
 				(<h2>
