@@ -2,7 +2,7 @@ import { css } from 'emotion';
 import { useDispatch, useSelector } from 'react-redux';
 
 import PhaseInfo from '../data/phase';
-
+import toTitleCase from '../helpers'
 import {
   SELECT_PHASE_OPTION,
   SELECT_PHASE_KEY,
@@ -39,7 +39,7 @@ const MobileFlowChart = ({selectedPhaseOption, selectedCards, selectedPhaseKeys}
 		  				text-align: left;
 		  			`}
 		  		>
-		  			{po.display_name}
+		  			{toTitleCase(po.display_name)}
 
 		  		</button>
 		  		{selectedPhaseOption && po.id === selectedPhaseOption.id && (
@@ -55,7 +55,7 @@ const MobileFlowChart = ({selectedPhaseOption, selectedCards, selectedPhaseKeys}
 			  					key={`${card.title}${card.decision}-mobile-card`}
 			  				>
 			  					<h2>
-			  						{card.decision}->{card.title}
+			  						{toTitleCase(card.decision)}->{toTitleCase(card.title)}
 			  					</h2>
 			  					{selectedPhaseKeys.map(pk => {
 			  							if (pk.card !== card.title) return null;
@@ -80,7 +80,7 @@ const MobileFlowChart = ({selectedPhaseOption, selectedCards, selectedPhaseKeys}
 				  									})
 				  								}}
 				  							>
-				  								{pk.name}
+				  								{toTitleCase(pk.name)}
 
 				  							</button>);
 			  						})}

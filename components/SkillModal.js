@@ -6,6 +6,8 @@ import { css } from 'emotion';
 
 import PhaseInfo from '../data/phase';
 
+import toTitleCase from '../helpers';
+
 import {
   SELECT_PHASE_KEY,
 } from '../redux/modules/main';
@@ -59,16 +61,19 @@ const Modal = () => {
 	          X
 	        </button>
 	        <h3>
-	        	{selectedPhaseOption.display_name}
-	        	{selectedPhaseKey.decision !== selectedPhaseOption.display_name && `->${selectedPhaseKey.decision}`}
-	        	->{selectedPhaseKey.card}
-	        	->{selectedPhaseKey.name}
+	        	{toTitleCase(selectedPhaseOption.display_name)}
+	        	{selectedPhaseKey.decision !== selectedPhaseOption.display_name && `->${toTitleCase(selectedPhaseKey.decision)}`}
+	        	->{toTitleCase(selectedPhaseKey.card)}
+	        	->{toTitleCase(selectedPhaseKey.name)}
 	        </h3>
-	        <span
-	        	className={css`font-weight: 900;`}
-	        >Also known as:</span>
+
 	        {selectedPhaseKey.aliases &&
 	        	(<span>
+			        <span
+			        	className={css`font-weight: 900;`}
+			        >
+			        	Also known as:
+			        </span>
 					{selectedPhaseKey.aliases.map(alias => (
 						<span key={alias}>
 							{' '}{'"'}{alias}{'"'}{' '}

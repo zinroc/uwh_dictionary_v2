@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import PhaseInfo from '../data/phase';
 
+import toTitleCase from '../helpers';
+
 import {
   SELECT_PHASE_OPTION,
   SELECT_PHASE_KEY,
@@ -12,7 +14,14 @@ const options = [];
 
 PhaseInfo.Phase_Keys.map(k => {
 	k.keys.map(kk => {
-		options.push({value: {...kk, phase: k.phase }, label: `${kk.decision}->${kk.card}->${kk.name}`});
+		options.push({value: {...kk, phase: k.phase }, label: `${toTitleCase(kk.decision)}->${toTitleCase(kk.card)}->${toTitleCase(kk.name)}`});
+		if (kk.aliases) {
+			kk.aliases.map(alias => {
+				options.push({value: {...kk, phase: k.phase}, label: `${toTitleCase(kk.decision)}->${toTitleCase(kk.card)}->${toTitleCase(alias)}`});
+				return true;
+			})
+		}
+
 		return true;
 	})
 	return true;

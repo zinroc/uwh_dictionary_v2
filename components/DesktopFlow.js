@@ -3,6 +3,8 @@ import { css } from 'emotion';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
+import toTitleCase from '../helpers';
+
 import {
   SELECT_PHASE_OPTION,
   SELECT_PHASE_KEY,
@@ -135,7 +137,7 @@ const DesktopFlowChart = ({selectedPhaseOption, selectedCards, selectedPhaseKeys
                         `
                       }
                     >
-                      {puck.name.replace(/_/g, " ")}
+                      {toTitleCase(puck.name)}
                     </div>
                     {puck.tracks.map(track => (
                       <div
@@ -227,7 +229,7 @@ const DesktopFlowChart = ({selectedPhaseOption, selectedCards, selectedPhaseKeys
                                 font-size: 36px;
                               `}
                           >
-                            {arrow.subtitle.name.replace(/_/g, " ")}
+                            {toTitleCase(arrow.subtitle.name)}
                         </div>)}
                       </div>))}
                     
@@ -243,7 +245,7 @@ const DesktopFlowChart = ({selectedPhaseOption, selectedCards, selectedPhaseKeys
                     top: ${card.pin.y}px;
                   `}
                 >
-                  <h2>{card.title}</h2>
+                  <h2>{toTitleCase(card.title)}</h2>
                   {selectedPhaseKeys.map(pKey => {
                     if (pKey.card !== card.title || pKey.decision !== card.decision) return null;
 
@@ -268,7 +270,7 @@ const DesktopFlowChart = ({selectedPhaseOption, selectedCards, selectedPhaseKeys
                             phaseKey: pKey
                           })}
                         >
-                          {pKey.name}
+                          {toTitleCase(pKey.name)}
                         </button>
                       );
                   })}
