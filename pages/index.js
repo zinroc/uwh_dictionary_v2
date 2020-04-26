@@ -12,7 +12,6 @@ import Modal from '../components/SkillModal';
 import {
   SELECT_PHASE_OPTION,
   SELECT_PHASE_KEY,
-  SELECT_PHASE_CARD
 } from '../redux/modules/main';
 
 const Home = () => {
@@ -51,21 +50,15 @@ const Home = () => {
       const phaseIndex = PhaseInfo.Phase_Options.findIndex(po => po && po.id === phaseId);
       if (phaseIndex !== -1) {
         const phase = PhaseInfo.Phase_Options[phaseIndex];
-        const cardIndex = PhaseInfo.Cards.findIndex(c => c.phase === phaseId);
         const phaseKeysIndex = PhaseInfo.Phase_Keys.findIndex(pks => pks.phase === phaseId);
         const phaseKeys = PhaseInfo.Phase_Keys[phaseKeysIndex];
         const phaseKeyIndex = phaseKeys.keys.findIndex(pk => pk.id === phaseKeyId);
-        if (cardIndex !== -1 && phaseKeyIndex !== -1)
+        if (phaseKeyIndex !== -1)
         {
           const phaseKey = phaseKeys.keys[phaseKeyIndex];
-          const card = PhaseInfo.Cards[cardIndex].cards;
           dispatch({
             type: SELECT_PHASE_OPTION,
             phaseOption: phase
-          })
-          dispatch({
-            type: SELECT_PHASE_CARD,
-            phaseCard: card
           })
           dispatch({
             type: SELECT_PHASE_KEY,
@@ -86,6 +79,9 @@ const Home = () => {
       <main>
         <div className={css`
             width: 100%;
+            @media (max-width: 330px) {
+              width: 100vw;
+            }
         `}>
           <h3> If you know the name of the technique <br /> Search for it here:</h3>
           <SearchBar />
@@ -96,7 +92,11 @@ const Home = () => {
             selectedCards={selectedCards}
             selectedPhaseKeys={selectedPhaseKeys}
           />
-          <MobileFlowChart />
+          <MobileFlowChart
+            selectedPhaseOption={selectedPhaseOption}
+            selectedCards={selectedCards}
+            selectedPhaseKeys={selectedPhaseKeys}
+          />
           <Modal />
         </div>
       </main>
@@ -212,7 +212,9 @@ const Home = () => {
           color: #0070f3;
           border-color: #0070f3;
         }
-
+        h3 {
+           word-wrap: break-word;
+        }
         .card h3 {
           margin: 0 0 1rem 0;
           font-size: 1.5rem;

@@ -6,11 +6,10 @@
 const PhaseInfo = {}
 
 PhaseInfo.Phase_Options = [
-    {id: 1, display_name: "Wall_Left", name: "Wall_Left", x: 40.9, y: 39, width: 2, height: 3, panel_height: 790, super_phases: []},
-    {id: 2, display_name: "Puck_Collection", name: "Puck_Collection", x: 56.1, y: 46.7, width: 8, height: 13.3, panel_height: 1600, super_phases: [{id: 4, x: 400, y: 1200}]},
-    //{id: 3, display_name: "Claim_Empty_Space", name: "Puck_Distribution", x: 3.5, y: 5, width: 0, height: 0, el: null, super_phases: [{id: 2, x: 31, y: 15, height: 35, width: 165}, {id: 4, x: 31, y: 90, height: 35, width: 165}]},
+    {id: 5, display_name: "Getting_Into_Position", name: "Getting_Into_Position", x: 29.5, y: 54, width: 8, height: 13, panel_height: 790,  super_phases: [{id: 2, x: 400, y: 1200}]},
+    {id: 2, display_name: "Puck_Collection", name: "Puck_Collection", x: 50.5, y: 46.7, width: 8, height: 13.3, panel_height: 1600, super_phases: [{id: 4, x: 400, y: 1200}]},
     {id: 4, display_name: "Eliminate_Opposing_Player", name: "Formation_Displacement", x: 3.5, y: 9, width: 0, height: 0, panel_height: 1600,  super_phases: [{id: 2, x: 400, y: 850}]},
-    {id: 5, display_name: "Getting_Into_Position", name: "Getting_Into_Position", x: 19.5, y: 54, width: 8, height: 13, panel_height: 790,  super_phases: [{id: 2, x: 400, y: 1200}]},
+    {id: 1, display_name: "Wall_Left", name: "Wall_Left", x: 24.9, y: 39, width: 2, height: 3, panel_height: 790, super_phases: []},
     {id: 6, display_name: "Wall_Right", name: "Wall_Right", x: 49, y: 56, width: 3, height: 5, panel_height: 790, super_phases: []}
 ];
 
@@ -44,14 +43,6 @@ PhaseInfo.Pucks = [
             {id: 4, name: "Claim_Empty_Space", pin: {x: 100, y: 1200}, tracks: [], arrows: []}
         ]
     },
-    /** {
-        phase: 3,
-        pucks: [
-            {id: 1, name: "Create_Empty_Space", pin: {x: 500, y: 0}, tracks: [{length: 400, pin: {x: 0, y: 0}, rotation: 0}], arrows: [{mini_track: null, direction: "right"}]},
-            {id: 2, name: "Take_Empty_Space", pin: {x: 500, y: 500}, tracks: [{length: 400, pin: {x: 0, y: 0}, rotation: 0}], arrows: [{mini_track: null, direction:"left"}]},
-            {id: 3, name: "Puck_Collection", pin: {x: 500, y: 1000}, tracks: [], arrows: []}
-        ]
-    }, **/
     {
         phase: 4,
         pucks: [
@@ -62,7 +53,6 @@ PhaseInfo.Pucks = [
                 tracks: [{length: 400, pin: {x: 0, y: 0}, rotation: 0}],
                 arrows: [
                     {mini_track: {height: 1200, pin: {x: -180, y: 0}}, direction:"left", subtitle: {name: "side_by_side", pin: {x: -450, y: 0}}},
-                    //{mini_track: null, direction:"right", subtitle: {name: "behind_under", pin: {x: 330, y: -310}}},
                     {mini_track: {height: 900, pin: {x: 310, y: 0}}, direction:"right", subtitle: {name: "head_on", pin: {x: 350, y: 0}}}
                 ]
             },
@@ -123,9 +113,6 @@ PhaseInfo.Cards = [
             {title: "outside_options", decision: "side_by_side", pin: {x: 50, y: 50}},
             {title: "cut_in_left", decision: "side_by_side", pin: {x: 50, y: 200}},
             {title: "cut_in_right", decision: "side_by_side", pin: {x: 50, y: 550}},
-            // {title: "forward_options", decision: "behind_under", pin: {x: 850, y: 265}},
-            // {title: "left_option", decision: "behind_under", pin: {x: 850, y: 450}},
-            // {title: "right_option", decision: "behind_under", pin: {x: 850, y: 650}}
         ]
     },
     {
@@ -258,20 +245,8 @@ PhaseInfo.Phase_Keys = [
             {id: 68, decision: "side_by_side", card: "cut_in_right", name: "Inverted_R_Layoff", active: true},
             {id: 70, decision: "side_by_side", card: "cut_in_right", name: "Reverse Windmill", active: true},
             {id: 71, decision: "side_by_side", card: "cut_in_right", name: "Standard_V", active: true},
-            {id: 72, decision: "behind_under", card: "right_option", name: "CCW_curl", active: true},
-            {id: 73, decision: "behind_under", card: "left_option", name: "CW_curl", active: true},
-            {id: 74, decision: "behind_under", card: "left_option", name: "Shovel_V", active: true},
-            {id: 75, decision: "behind_under", card: "left_option", name: "Windmill", active: true},
-            {id: 76, decision: "behind_under", card: "right_option", name: "Standard_V", active: true},
             {id: 90, decision: "side_by_side", card: "outside_options", name: "outswim", active: false},
             {id: 91, decision: "side_by_side", card: "outside_options", name: "pass_around_outside", active: true},
-            {id: 92, decision: "behind_under", card: "forward_options", name: "remora_swim", active: false},
-            {id: 93, decision: "behind_under", card: "forward_options", name: "flick_pass", active: false},
-            {id: 94, decision: "behind_under", card: "right_option", name: "six", active: false},
-            {id: 95, decision: "behind_under", card: "right_option", name: "knuckleV", active: false},
-            {id: 96, decision: "behind_under", card: "right_option", name: "reverse_windmill", active: false},
-            {id: 97, decision: "behind_under", card: "right_option", name: "Fake_CCW_invertedR_curl_V", active: false},
-            {id: 98, decision: "behind_under", card: "right_option", name: "CCW_360_invertedR_curl", active: false},
             {id: 122, decision: "head_on", card: "left_option", name: "nutmeg", active: true},
             {id: 123, decision: "side_by_side", card: "cut_in_left", name: "nutmeg", active: false},
             {id: 124, decision: "side_by_side", card: "cut_in_left", name: "backflick", active: false}

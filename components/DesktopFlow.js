@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import {
   SELECT_PHASE_OPTION,
   SELECT_PHASE_KEY,
-  SELECT_PHASE_CARD
 } from '../redux/modules/main';
 import PhaseInfo from '../data/phase';
 

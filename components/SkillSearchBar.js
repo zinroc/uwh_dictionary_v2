@@ -6,7 +6,6 @@ import PhaseInfo from '../data/phase';
 import {
   SELECT_PHASE_OPTION,
   SELECT_PHASE_KEY,
-  SELECT_PHASE_CARD
 } from '../redux/modules/main';
 
 const options = [];
@@ -31,17 +30,10 @@ const SearchBar = () => {
 			onChange={entry => {
 				const {value} = entry;
 				const phaseOption = PhaseInfo.Phase_Options[PhaseInfo.Phase_Options.findIndex(po => po.id === value.phase)];
-				
-				const phaseCard = PhaseInfo.Cards[PhaseInfo.Cards.findIndex(pcs => pcs.phase === value.phase)].cards;
 
 				dispatch({
 					type: SELECT_PHASE_OPTION,
 					phaseOption,
-				})
-
-				dispatch({
-					type: SELECT_PHASE_CARD,
-					phaseCard,
 				})
 
 				dispatch({

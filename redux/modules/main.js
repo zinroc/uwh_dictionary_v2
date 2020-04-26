@@ -1,11 +1,9 @@
 
 export const SELECT_PHASE_OPTION = 'SELECT_PHASE_OPTION';
 export const SELECT_PHASE_KEY = 'SELECT_PHASE_KEY';
-export const SELECT_PHASE_CARD = 'SELECT_PHASE_CARD';
 
 const initialState = {
   selectedPhaseOption: null,
-  selectedPhaseCard: null,
   selectedPhaseKey: null,
 };
 
@@ -13,18 +11,11 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-  	case SELECT_PHASE_CARD: {
-  		return {
-  			...state,
-  			selectedPhaseCard: action.phaseCard,
-  		}
-  	}
   	case SELECT_PHASE_OPTION: {
   		return {
   			...state,
   			selectedPhaseOption: action.phaseOption,
   			selectedPhaseKey: null,
-  			selectedPhaseCard: null,
   		}
   	}
   	case SELECT_PHASE_KEY: {
