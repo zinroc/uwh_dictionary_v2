@@ -17,6 +17,7 @@ const Modal = () => {
   const selectedPhaseOption = useSelector(state => state.main.selectedPhaseOption);
 
 
+
   if (!selectedPhaseKey) return null;
 	return (
 	  <div
@@ -63,6 +64,17 @@ const Modal = () => {
 	        	->{selectedPhaseKey.card}
 	        	->{selectedPhaseKey.name}
 	        </h3>
+	        <span
+	        	className={css`font-weight: 900;`}
+	        >Also known as:</span>
+	        {selectedPhaseKey.aliases &&
+	        	(<span>
+					{selectedPhaseKey.aliases.map(alias => (
+						<span key={alias}>
+							{' '}{'"'}{alias}{'"'}{' '}
+						</span>)
+					)}
+	        	</span>)}
 
 			{PhaseInfo.Phase_Key_Values.findIndex(kValue => kValue && kValue.phase_key === selectedPhaseKey.id) === -1 &&
 				(<h2>
