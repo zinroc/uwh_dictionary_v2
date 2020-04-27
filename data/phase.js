@@ -111,8 +111,8 @@ PhaseInfo.Cards = [
             {title: "left_option", decision: "head_on", pin: {x: 770, y: 100}},
             {title: "right_option", decision: "head_on", pin: {x: 770, y: 450}},
             {title: "outside_options", decision: "side_by_side", pin: {x: 50, y: 50}},
-            {title: "cut_in_left", decision: "side_by_side", pin: {x: 50, y: 200}},
-            {title: "cut_in_right", decision: "side_by_side", pin: {x: 50, y: 600}},
+            {title: "cut_in_left", decision: "side_by_side", pin: {x: 50, y: 300}},
+            {title: "cut_in_right", decision: "side_by_side", pin: {x: 50, y: 700}},
         ]
     },
     {
@@ -135,7 +135,7 @@ PhaseInfo.Cards = [
             {title: "ccw_tackle", decision: "first_contact", pin: {x: 720, y: 570}, border: "left"},
             {title: "cw_tackle", decision: "first_contact", pin: {x: 720, y: 730}, border: "left"},
             {title: "void", decision: "first_contact", pin: {x: 720, y: 865}, border: "left"},
-            {title: "protect_and_stall", decision: "Deal_With_Threats", pin: {x: 80, y: 280}, border: "right"},
+            {title: "protect", decision: "Deal_With_Threats", pin: {x: 80, y: 280}, border: "right"},
         ]
     },
     {
@@ -195,15 +195,15 @@ PhaseInfo.Phase_Keys = [
             {id: 17, decision: "first_contact", card: "cw_tackle", name: "pinch_curl", active: true},
             {id: 18, decision: "first_contact", card: "cw_tackle", name: "barrel_roll", active: true},
             {id: 49, decision: "first_contact", card: "ccw_tackle", name: "Hook_Pull_Rake", active: true},
-            {id: 50, decision: "first_contact", card: "void", name: "arm_punch", active: true, height: "54px"},
+            {id: 50, decision: "first_contact", card: "void", name: "feint_punch", active: true, height: "54px"},
             {id: 51, decision: "first_contact", card: "void", name: "bottom_tap_decoy_pass", active: true, height: "54px"},
             {id: 52, decision: "first_contact", card: "void", name: "knock_down", active: true, height: "54px"},
             {id: 53, decision: "first_contact", card: "void", name: "flick_pass", active: true},
-            {id: 85, decision: "Deal_With_Threats", card: "protect_and_stall", name: "alternate_cw_ccw_curls", active: true, height: "54px"},
-            {id: 86, decision: "Deal_With_Threats", card: "protect_and_stall", name: "continuous_curl", active: true},
-            {id: 87, decision: "Deal_With_Threats", card: "protect_and_stall", name: "backward_cobra", active: false},
-            {id: 88, decision: "Deal_With_Threats", card: "protect_and_stall", name: "enter_wall_game", active: false, height: "54px"},
-            {id: 89, decision: "Deal_With_Threats", card: "protect_and_stall", name: "dump_pass", active: false, top: "30px;", height: "54px"},
+            {id: 85, decision: "Deal_With_Threats", card: "protect", name: "alternate_cw_ccw_curls", active: true, height: "54px"},
+            {id: 86, decision: "Deal_With_Threats", card: "protect", name: "continuous_curl", active: true},
+            {id: 87, decision: "Deal_With_Threats", card: "protect", name: "backward_cobra", active: false},
+            {id: 89, decision: "Deal_With_Threats", card: "protect", name: "dump_pass", active: false},
+            {id: 128, decision: "Deal_With_Threats", card: "protect", name: "tic_tac", active: true},
         ]
     },
     {
@@ -228,7 +228,7 @@ PhaseInfo.Phase_Keys = [
             {id: 47, decision: "side_by_side", card: "cut_in_right", name: "Hook_Pull_Curl", active: true},
             {id: 48, decision: "head_on", card: "left_option", name: "Shovel", active: true, aliases: ["the_ethiopian"]},
             {id: 54, decision: "side_by_side", card: "cut_in_left", name: "Shovel_Pass", active: true},
-            {id: 125, decision: "side_by_side", card: "cut_in_left", name: "Tumbleturn", active: false},
+            {id: 125, decision: "side_by_side", card: "outside_options", name: "Tumbleturn", active: false},
             {id: 62, decision: "head_on", card: "right_option", name: "Leapfrog_Pass", active: true},
             {id: 63, decision: "head_on", card: "left_option", name: "Leapfrog_Pass", active: true},
             {id: 64, decision: "head_on", card: "left_option", name: "Shovel_Pass", active: true},
@@ -240,6 +240,7 @@ PhaseInfo.Phase_Keys = [
             {id: 71, decision: "side_by_side", card: "cut_in_right", name: "Standard_V", active: true},
             {id: 90, decision: "side_by_side", card: "outside_options", name: "outswim", active: false},
             {id: 91, decision: "side_by_side", card: "outside_options", name: "pass_around_outside", active: true},
+            {id: 127, decision: "side_by_side", card: "outside_options", name: "doubleback_windmill", active: true, aliases: ["180_windmill", "180_hook_push"]},
             {id: 122, decision: "head_on", card: "left_option", name: "nutmeg", active: true},
             {id: 123, decision: "side_by_side", card: "cut_in_left", name: "nutmeg", active: false},
             {id: 124, decision: "side_by_side", card: "cut_in_left", name: "backflick", active: false}
@@ -395,7 +396,7 @@ PhaseInfo.Phase_Keys = [
             {id: 109, decision: "Wall_Right", card: "Leaving", name: "backflick", active: true},
             {id: 110, decision: "Wall_Right", card: "Leaving", name: "cw_tackle", active: true},
             {id: 111, decision: "Wall_Right", card: "Leaving", name: "barrel_roll", active: true},
-            {id: 126, decision: "Wall_Right", card: "Leaving", name: "Pin_Roll_CW_Curl", active: false}
+            {id: 126, decision: "Wall_Right", card: "Leaving", name: "Pin_Roll_CW_Curl", active: true, aliases: ["Pin_and_Spin"]}
         ]
     }
 ];
@@ -476,6 +477,7 @@ PhaseInfo.Phase_Key_Values = [
     {phase_key: 67, value: "FlickPassForwardLeftOption.gif"},
     {phase_key: 68, value: "InvertedRLayoff.gif"},
     {phase_key: 69, value: "FinFirst.gif"},
+    {phase_key: 69, value: "bellyup.gif"},
     {phase_key: 70, value: "reverseWindmill.gif"},
     {phase_key: 71, value: "StandardV.gif"},
     {phase_key: 72, value: "HoverCCWCurl.gif"},
@@ -490,6 +492,9 @@ PhaseInfo.Phase_Key_Values = [
     {phase_key: 122, value: "Nutmeg.gif"},
     {phase_key: 100, value: "SpikeRightWall.gif"},
     {phase_key: 109, value: "WallBackflick.gif"},
+    {phase_key: 126, value: "PinAndSpin.gif"},
+    {phase_key: 127, value: "windmill_double_back.gif"},
+    {phase_key: 128, value: "tictac.gif"}
 ];
 
 export default PhaseInfo

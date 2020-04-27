@@ -12,11 +12,14 @@ import Modal from '../components/SkillModal';
 import {
   SELECT_PHASE_OPTION,
   SELECT_PHASE_KEY,
+  TOGGLE_CREDITS
 } from '../redux/modules/main';
 
 const Home = () => {
   const dispatch = useDispatch();
   const selectedPhaseKey = useSelector(state => state.main.selectedPhaseKey);
+
+  const showCredits = useSelector(state => state.main.showCredits);
 
   const selectedPhaseOption = useSelector(state => state.main.selectedPhaseOption);
   const selectedCards = useSelector(state => {
@@ -77,12 +80,42 @@ const Home = () => {
       </Head>
 
       <main>
+
         <div className={css`
             width: 100%;
             @media (max-width: 330px) {
               width: 100vw;
             }
         `}>
+          <div className={css`
+              float: right;
+            `}>
+            <button
+              className={css`
+                float: right;
+              `}
+              onClick={() => dispatch({
+                type: TOGGLE_CREDITS
+              })}
+            >
+              Credits
+            </button>
+            {showCredits && 
+            <div>
+              <div
+                className={css`font-weight: 900`}
+              >
+                Art: Dora Poon
+              </div>
+              <div
+                className={css`font-weight: 900`}
+              >
+                Programming: Sergei Vilbik
+
+              </div>
+            </div>
+            }
+          </div>
           <h3> If you know the name of the technique <br /> Search for it here:</h3>
           <SearchBar />
           <h3>Otherwise, look for it in the contextual flow chart below</h3>
@@ -99,6 +132,7 @@ const Home = () => {
           />
           <Modal />
         </div>
+
       </main>
 
       <footer>
