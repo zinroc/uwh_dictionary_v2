@@ -386,7 +386,7 @@ PhaseInfo.Phase_Keys = [
             {id: 57, decision: "Wall_Right", card: "Leaving", name: "hook_pull_shovel", active: true},
             {id: 61, decision: "Wall_Right", card: "Leaving", name: "CW_Curl_Kickoff", active: true},
             {id: 99, decision: "Wall_Right", card: "Advancing", name: "inverted_juggle", active: false},
-            {id: 100, decision: "Wall_Right", card: "Advancing", name: "rake_spike", active: true},
+            {id: 100, decision: "Wall_Right", card: "Advancing", name: "spike", active: true},
             {id: 101, decision: "Wall_Right", card: "Advancing", name: "rake_juggle", active: false},
             {id: 102, decision: "Wall_Right", card: "Advancing", name: "rake", active: false},
             {id: 103, decision: "Wall_Right", card: "Stalling", name: "punch_pin", active: false},
