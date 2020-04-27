@@ -216,7 +216,7 @@ PhaseInfo.Phase_Keys = [
             {id: 23, decision: "side_by_side", card: "cut_in_right", name: "dropoff", active: true},
             {id: 24, decision: "head_on", card: "left_option", name: "crossfrog_pass", active: true},
             {id: 25, decision: "head_on", card: "right_option", name: "crossfrog_pass", active: true},
-            {id: 36, decision: "head_on", card: "left_option", name: "dummy", active: true},
+            {id: 36, decision: "head_on", card: "left_option", name: "dummy", active: true, aliases: ["jinx", "deek", "sidestep", "swerve"]},
             {id: 37, decision: "head_on", card: "left_option", name: "flick_and_chase", active: true},
             {id: 38, decision: "head_on", card: "right_option", name: "fade", active: true},
             {id: 39, decision: "head_on", card: "right_option", name: "flick_and_chase", active: true},
