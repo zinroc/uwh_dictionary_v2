@@ -102,7 +102,7 @@ const Modal = () => {
 		        	</div>
 		        );
 	        })}
-	        <a
+	        Shareable Link: <a
 	        	href={`${location.protocol.concat('//').concat(location.host).concat(location.pathname)}?phase=${selectedPhaseOption.id}&key=${selectedPhaseKey.id}`}
 	        	target="_blank"
 	        >
