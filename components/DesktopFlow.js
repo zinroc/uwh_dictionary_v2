@@ -74,7 +74,7 @@ const DesktopFlowChart = ({selectedPhaseOption, selectedCards, selectedPhaseKeys
       </div>
       {selectedPhaseOption && (
         <div>
-          <h1>{selectedPhaseOption.display_name}</h1>
+          <h1>{toTitleCase(selectedPhaseOption.display_name)}</h1>
           <div>
             <div className={css`
               position: absolute;
