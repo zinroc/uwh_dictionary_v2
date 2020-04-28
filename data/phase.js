@@ -494,7 +494,7 @@ PhaseInfo.Phase_Key_Values = [
     {phase_key: 126, value: "PinAndSpin.gif"},
     {phase_key: 127, value: "windmill_double_back.gif"},
     {phase_key: 128, value: "tictac.gif"},
-    {phase_key: 87, url: "https://gdurl.com/nsNK"}
+    {phase_key: 87, value: "reverseCobra.gif"}
 ];
 
 export default PhaseInfo

@@ -93,10 +93,10 @@ const Modal = () => {
 	        			className={css`
 	        				max-width: 600px;
 	        			`}
-	        			key={kValue.url || kValue.value}
+	        			key={kValue.value}
 	        		>
 		        		<img
-			        		src={kValue.url || `/dictionary_values/${kValue.value}`}
+			        		src={`https://uwhdictionary.s3.us-east-2.amazonaws.com/${kValue.value}`}
 			        		width="100%"
 			        	/>
 		        	</div>
