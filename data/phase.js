@@ -275,7 +275,7 @@ PhaseInfo.Phase_Keys = [
                 id: 30,
                 decision: "choose_body_position",
                 card: "behind_puck",
-                name: "fins_up",
+                name: "handstand",
                 active: true
             },
             {
@@ -303,7 +303,7 @@ PhaseInfo.Phase_Keys = [
                 id: 34,
                 decision: "choose_body_position",
                 card: "ahead_of_puck",
-                name: "fins_up",
+                name: "handstand",
                 active: true
             },
             {
