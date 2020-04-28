@@ -201,7 +201,7 @@ PhaseInfo.Phase_Keys = [
             {id: 53, decision: "first_contact", card: "void", name: "flick_pass", active: true},
             {id: 85, decision: "Deal_With_Threats", card: "protect", name: "alternate_cw_ccw_curls", active: true, height: "54px"},
             {id: 86, decision: "Deal_With_Threats", card: "protect", name: "continuous_curl", active: true},
-            {id: 87, decision: "Deal_With_Threats", card: "protect", name: "backward_cobra", active: false},
+            {id: 87, decision: "Deal_With_Threats", card: "protect", name: "leg_sheild", active: true},
             {id: 89, decision: "Deal_With_Threats", card: "protect", name: "dump_pass", active: false},
             {id: 128, decision: "Deal_With_Threats", card: "protect", name: "tic_tac", active: true},
         ]
@@ -275,7 +275,7 @@ PhaseInfo.Phase_Keys = [
                 id: 30,
                 decision: "choose_body_position",
                 card: "behind_puck",
-                name: "icicle",
+                name: "fins_up",
                 active: true
             },
             {
@@ -290,7 +290,7 @@ PhaseInfo.Phase_Keys = [
                 decision: "choose_body_position",
                 card: "ahead_of_puck",
                 name: "backward_cobra",
-                active: true
+                active: false
             },
             {
                 id: 33,
@@ -303,7 +303,7 @@ PhaseInfo.Phase_Keys = [
                 id: 34,
                 decision: "choose_body_position",
                 card: "ahead_of_puck",
-                name: "turkish_fence",
+                name: "fins_up",
                 active: true
             },
             {
@@ -439,9 +439,8 @@ PhaseInfo.Phase_Key_Values = [
     {phase_key: 29, value: "Cobra.png"},
     {phase_key: 30, value: "Turkish_Fence.png"},
     {phase_key: 31, value: "Upside_Down.png"},
-    {phase_key: 32, value: "Cobra.png"},
     {phase_key: 33, value: "Retrospective_Cobra.png"},
-    {phase_key: 34, value: "Turkish_Fence.png"},
+    {phase_key: 34, value: "fence.png"},
     {phase_key: 35, value: "turtle.png"},
     {phase_key: 36, value: "Dummy.gif"},
     {phase_key: 37, value: "FlickChaseLeft.gif"},
@@ -494,7 +493,8 @@ PhaseInfo.Phase_Key_Values = [
     {phase_key: 109, value: "WallBackflick.gif"},
     {phase_key: 126, value: "PinAndSpin.gif"},
     {phase_key: 127, value: "windmill_double_back.gif"},
-    {phase_key: 128, value: "tictac.gif"}
+    {phase_key: 128, value: "tictac.gif"},
+    {phase_key: 87, value: "reverseCobra.gif"}
 ];
 
 export default PhaseInfo
