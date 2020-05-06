@@ -1,71 +1,84 @@
 import Head from 'next/head'
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { css } from 'emotion';
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { css } from 'emotion'
 
-import PhaseInfo from '../data/phase';
-import SearchBar from '../components/SkillSearchBar';
-import DesktopFlowChart from '../components/DesktopFlow';
-import MobileFlowChart from '../components/MobileFlow';
-import Modal from '../components/SkillModal';
+import PhaseInfo from '../data/phase'
+import SearchBar from '../components/SkillSearchBar'
+import DesktopFlowChart from '../components/DesktopFlow'
+import MobileFlowChart from '../components/MobileFlow'
+import Modal from '../components/SkillModal'
 
 import {
   SELECT_PHASE_OPTION,
   SELECT_PHASE_KEY,
-  TOGGLE_CREDITS
-} from '../redux/modules/main';
+  TOGGLE_CREDITS,
+} from '../redux/modules/main'
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const selectedPhaseKey = useSelector(state => state.main.selectedPhaseKey);
+  const dispatch = useDispatch()
 
-  const showCredits = useSelector(state => state.main.showCredits);
+  const showCredits = useSelector((state) => state.main.showCredits)
 
-  const selectedPhaseOption = useSelector(state => state.main.selectedPhaseOption);
-  const selectedCards = useSelector(state => {
-    if (!state.main.selectedPhaseOption) return null;
+  const selectedPhaseOption = useSelector(
+    (state) => state.main.selectedPhaseOption
+  )
+  const selectedCards = useSelector((state) => {
+    if (!state.main.selectedPhaseOption) return null
 
-    let s_cards = [];
-    PhaseInfo.Cards.map(c => {
-      if (c.phase === state.main.selectedPhaseOption.id) s_cards = [...c.cards];
-      return true;
+    let s_cards = []
+    PhaseInfo.Cards.map((c) => {
+      if (c.phase === state.main.selectedPhaseOption.id) s_cards = [...c.cards]
+      return true
     })
-    return s_cards;
+    return s_cards
   })
 
-  const selectedPhaseKeys = useSelector(state => {
-    if (!state.main.selectedPhaseOption) return null;
+  const selectedPhaseKeys = useSelector((state) => {
+    if (!state.main.selectedPhaseOption) return null
 
-    let s_keys = [];
-    PhaseInfo.Phase_Keys.map(pks => {
-      if (pks.phase === state.main.selectedPhaseOption.id) s_keys = pks.keys;
-      return true;
+    let s_keys = []
+    PhaseInfo.Phase_Keys.map((pks) => {
+      if (pks.phase === state.main.selectedPhaseOption.id) s_keys = pks.keys
+      return true
     })
-    return s_keys;
+    return s_keys
   })
 
   useEffect(() => {
-
-    if (window.location.href.includes("&key=") && window.location.href.includes("?phase=")) {
-      
-      const phaseId = parseInt(window.location.href.split("?phase=")[1].split("&key=")[0], 10);
-      const phaseKeyId = parseInt(window.location.href.split("?phase=")[1].split("&key=")[1], 10);
-      const phaseIndex = PhaseInfo.Phase_Options.findIndex(po => po && po.id === phaseId);
+    if (
+      window.location.href.includes('&key=') &&
+      window.location.href.includes('?phase=')
+    ) {
+      const phaseId = parseInt(
+        window.location.href.split('?phase=')[1].split('&key=')[0],
+        10
+      )
+      const phaseKeyId = parseInt(
+        window.location.href.split('?phase=')[1].split('&key=')[1],
+        10
+      )
+      const phaseIndex = PhaseInfo.Phase_Options.findIndex(
+        (po) => po && po.id === phaseId
+      )
       if (phaseIndex !== -1) {
-        const phase = PhaseInfo.Phase_Options[phaseIndex];
-        const phaseKeysIndex = PhaseInfo.Phase_Keys.findIndex(pks => pks.phase === phaseId);
-        const phaseKeys = PhaseInfo.Phase_Keys[phaseKeysIndex];
-        const phaseKeyIndex = phaseKeys.keys.findIndex(pk => pk.id === phaseKeyId);
-        if (phaseKeyIndex !== -1)
-        {
-          const phaseKey = phaseKeys.keys[phaseKeyIndex];
+        const phase = PhaseInfo.Phase_Options[phaseIndex]
+        const phaseKeysIndex = PhaseInfo.Phase_Keys.findIndex(
+          (pks) => pks.phase === phaseId
+        )
+        const phaseKeys = PhaseInfo.Phase_Keys[phaseKeysIndex]
+        const phaseKeyIndex = phaseKeys.keys.findIndex(
+          (pk) => pk.id === phaseKeyId
+        )
+        if (phaseKeyIndex !== -1) {
+          const phaseKey = phaseKeys.keys[phaseKeyIndex]
           dispatch({
             type: SELECT_PHASE_OPTION,
-            phaseOption: phase
+            phaseOption: phase,
           })
           dispatch({
             type: SELECT_PHASE_KEY,
-            phaseKey: phaseKey
+            phaseKey,
           })
         }
       }
@@ -80,43 +93,55 @@ const Home = () => {
       </Head>
 
       <main>
-
-        <div className={css`
+        <div
+          className={css`
             width: 100%;
             @media (max-width: 330px) {
               width: 100vw;
             }
-        `}>
-          <div className={css`
+          `}
+        >
+          <div
+            className={css`
               float: right;
-            `}>
+            `}
+          >
             <button
+              type="button"
               className={css`
                 float: right;
               `}
-              onClick={() => dispatch({
-                type: TOGGLE_CREDITS
-              })}
+              onClick={() =>
+                dispatch({
+                  type: TOGGLE_CREDITS,
+                })
+              }
             >
               Credits
             </button>
-            {showCredits && 
-            <div>
-              <div
-                className={css`font-weight: 900`}
-              >
-                Art: Dora Poon
+            {showCredits && (
+              <div>
+                <div
+                  className={css`
+                    font-weight: 900;
+                  `}
+                >
+                  Art: Dora Poon
+                </div>
+                <div
+                  className={css`
+                    font-weight: 900;
+                  `}
+                >
+                  Programming: Sergei Vilbik
+                </div>
               </div>
-              <div
-                className={css`font-weight: 900`}
-              >
-                Programming: Sergei Vilbik
-
-              </div>
-            </div>
-            }
+            )}
           </div>
-          <h3> If you know the name of the technique <br /> Search for it here:</h3>
+          <h3>
+            {' '}
+            If you know the name of the technique <br /> Search for it here:
+          </h3>
           <SearchBar />
           <h3>Otherwise, look for it in the contextual flow chart below</h3>
 
@@ -132,12 +157,9 @@ const Home = () => {
           />
           <Modal />
         </div>
-
       </main>
 
-      <footer>
-
-      </footer>
+      <footer></footer>
 
       <style jsx>{`
         .container {
@@ -247,7 +269,7 @@ const Home = () => {
           border-color: #0070f3;
         }
         h3 {
-           word-wrap: break-word;
+          word-wrap: break-word;
         }
         .card h3 {
           margin: 0 0 1rem 0;
@@ -286,4 +308,4 @@ const Home = () => {
   )
 }
 
-export default Home;
+export default Home

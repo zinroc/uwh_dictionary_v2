@@ -1,9 +1,9 @@
-const toTitleCase = str => {
-  str = str.replace(/_/g, " ").toLowerCase().split(' ');
-  for (var i = 0; i < str.length; i++) {
-    str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1); 
+const toTitleCase = (str) => {
+  const newStr = str.replace(/_/g, ' ').toLowerCase().split(' ')
+  for (let i = 0; i < newStr.length; i += 1) {
+    newStr[i] = newStr[i].charAt(0).toUpperCase() + newStr[i].slice(1)
   }
-  return str.join(' ');
+  return newStr.join(' ')
 }
 
-export default toTitleCase;
+export default toTitleCase
