@@ -911,6 +911,13 @@ PhaseInfo.Phase_Keys = [
         name: 'double_back_windmill_flick',
         active: true,
       },
+      {
+        id: 131,
+        decision: 'head_on',
+        card: 'left_option',
+        name: 'around_the_world',
+        active: false,
+      },
     ],
   },
   {
