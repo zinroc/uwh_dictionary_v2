@@ -303,7 +303,7 @@ PhaseInfo.Cards = [
         border: 'left',
       },
       {
-        title: 'smash',
+        title: 'head_on',
         decision: 'first_contact',
         pin: { x: 720, y: 365 },
         border: 'left',
@@ -501,17 +501,17 @@ PhaseInfo.Phase_Keys = [
         name: 'punch',
         active: true,
       },
-      {
-        id: 10,
-        decision: 'first_contact',
-        card: 'ccw_backpick',
-        name: 'rake_shovel',
-        active: true,
-      },
+      // {
+      //   id: 10,
+      //   decision: 'first_contact',
+      //   card: 'ccw_backpick',
+      //   name: 'rake_shovel',
+      //   active: true,
+      // },
       {
         id: 11,
         decision: 'first_contact',
-        card: 'smash',
+        card: 'head_on',
         name: 'punch',
         active: true,
         height: '54px',
@@ -519,7 +519,7 @@ PhaseInfo.Phase_Keys = [
       {
         id: 12,
         decision: 'first_contact',
-        card: 'smash',
+        card: 'head_on',
         name: 'punch_roll',
         active: true,
         height: '54px',
@@ -527,7 +527,7 @@ PhaseInfo.Phase_Keys = [
       {
         id: 13,
         decision: 'first_contact',
-        card: 'smash',
+        card: 'head_on',
         name: 'inverted_punch_juggle',
         active: true,
         height: '54px',
@@ -535,7 +535,7 @@ PhaseInfo.Phase_Keys = [
       {
         id: 14,
         decision: 'first_contact',
-        card: 'smash',
+        card: 'head_on',
         name: 'inverted_punch_roll',
         active: true,
         height: '54px',
