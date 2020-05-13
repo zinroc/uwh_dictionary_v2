@@ -251,7 +251,7 @@ PhaseInfo.Cards = [
     phase: 4,
     cards: [
       { title: 'left_option', decision: 'head_on', pin: { x: 770, y: 100 } },
-      { title: 'right_option', decision: 'head_on', pin: { x: 770, y: 450 } },
+      { title: 'right_option', decision: 'head_on', pin: { x: 770, y: 550 } },
       {
         title: 'outside_options',
         decision: 'side_by_side',
@@ -851,7 +851,7 @@ PhaseInfo.Phase_Keys = [
         id: 71,
         decision: 'side_by_side',
         card: 'cut_in_right',
-        name: 'Standard_V',
+        name: 'Fade',
         active: true,
       },
       {
@@ -895,7 +895,21 @@ PhaseInfo.Phase_Keys = [
         decision: 'side_by_side',
         card: 'cut_in_left',
         name: 'backflick',
-        active: false,
+        active: true,
+      },
+      {
+        id: 129,
+        decision: 'head_on',
+        card: 'left_option',
+        name: 'backflick',
+        active: true,
+      },
+      {
+        id: 130,
+        decision: 'head_on',
+        card: 'left_option',
+        name: 'double_back_windmill_flick',
+        active: true,
       },
     ],
   },
@@ -942,7 +956,7 @@ PhaseInfo.Phase_Keys = [
         decision: 'choose_body_position',
         card: 'ahead_of_puck',
         name: 'backward_cobra',
-        active: false,
+        active: true,
       },
       {
         id: 33,
@@ -1188,7 +1202,7 @@ PhaseInfo.Phase_Key_Values = [
   { phase_key: 27, value: 'Sdive.gif' },
   { phase_key: 28, value: 'DuckDive.gif' },
   { phase_key: 29, value: 'Cobra.png' },
-  { phase_key: 30, value: 'Turkish_Fence.png' },
+  { phase_key: 30, value: 'handstand_defense.gif' },
   { phase_key: 31, value: 'Upside_Down.png' },
   { phase_key: 33, value: 'Retrospective_Cobra.png' },
   { phase_key: 34, value: 'fence.png' },
@@ -1229,7 +1243,7 @@ PhaseInfo.Phase_Key_Values = [
   { phase_key: 69, value: 'FinFirst.gif' },
   { phase_key: 69, value: 'bellyup.gif' },
   { phase_key: 70, value: 'reverseWindmill.gif' },
-  { phase_key: 71, value: 'StandardV.gif' },
+  { phase_key: 71, value: 'fade_side_by_side.gif' },
   { phase_key: 72, value: 'HoverCCWCurl.gif' },
   { phase_key: 73, value: 'HoverCWCurl.gif' },
   { phase_key: 74, value: 'HoverShovelV.gif' },
@@ -1239,6 +1253,7 @@ PhaseInfo.Phase_Key_Values = [
   { phase_key: 85, value: 'alternateCurlStall.gif' },
   { phase_key: 85, value: 'AlternateCurlv2.gif' },
   { phase_key: 86, value: 'ContinuousCurl.gif' },
+  { phase_key: 122, value: 'nutmeg_clean.gif' },
   { phase_key: 122, value: 'Nutmeg.gif' },
   { phase_key: 100, value: 'SpikeRightWall.gif' },
   { phase_key: 109, value: 'WallBackflick.gif' },
@@ -1246,6 +1261,11 @@ PhaseInfo.Phase_Key_Values = [
   { phase_key: 127, value: 'windmill_double_back.gif' },
   { phase_key: 128, value: 'tictac.gif' },
   { phase_key: 87, value: 'reverseCobra.gif' },
+  { phase_key: 124, value: 'backflick_side_by_side.gif' },
+  { phase_key: 129, value: 'backflick_head_on.gif' },
+  { phase_key: 130, value: 'double_back_windmill_flick.gif' },
+  { phase_key: 18, value: 'barrel_roll_worlds.gif' },
+  { phase_key: 32, value: 'reverseCobra.png' },
 ]
 
 export default PhaseInfo
