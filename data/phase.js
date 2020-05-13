@@ -929,6 +929,7 @@ PhaseInfo.Phase_Keys = [
         card: 'dives',
         name: 'frog_dive',
         active: true,
+        aliases: ['kelp_dive'],
       },
       {
         id: 29,
