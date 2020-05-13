@@ -572,7 +572,7 @@ PhaseInfo.Phase_Keys = [
         id: 49,
         decision: 'first_contact',
         card: 'ccw_tackle',
-        name: 'Hook_Pull_Rake',
+        name: 'Hook_Pull',
         active: true,
       },
       {
