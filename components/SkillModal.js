@@ -82,7 +82,7 @@ const Modal = () => {
               <span key={alias}>
                 {' '}
                 {'"'}
-                {alias}
+                {toTitleCase(alias)}
                 {'"'}{' '}
               </span>
             ))}
