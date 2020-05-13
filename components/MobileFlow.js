@@ -1,5 +1,6 @@
 import { css } from 'emotion'
-import { useDispatch } from 'react-redux'
+import { useRef, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import PhaseInfo from '../data/phase'
 import toTitleCase from '../helpers'
@@ -12,6 +13,20 @@ const MobileFlowChart = ({
 }) => {
   const dispatch = useDispatch()
 
+  const selectedPhaseKey = useSelector((state) => state.main.selectedPhaseKey)
+
+  const isMobile = useSelector((state) => state.main.isMobile)
+
+  const BottomOfPhaseOptions = useRef(null)
+
+  const scrollToRef = (ref) =>
+    window.scrollTo({ top: ref.current.offsetTop + 350 })
+
+  useEffect(() => {
+    if (!selectedPhaseKey && selectedPhaseOption && isMobile) {
+      scrollToRef(BottomOfPhaseOptions)
+    }
+  }, [selectedPhaseKey])
   return (
     <div
       className={css`
@@ -51,6 +66,7 @@ const MobileFlowChart = ({
                 padding: 15px;
               `}
             >
+              <div ref={BottomOfPhaseOptions} />
               {selectedCards.map((card) => (
                 <div key={`${card.title}${card.decision}-mobile-card`}>
                   <h2>
@@ -79,6 +95,7 @@ const MobileFlowChart = ({
                           dispatch({
                             type: SELECT_PHASE_KEY,
                             phaseKey: pk,
+                            isMobile: true,
                           })
                         }}
                       >

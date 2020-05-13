@@ -6,6 +6,8 @@ const initialState = {
   selectedPhaseOption: null,
   selectedPhaseKey: null,
   showCredits: false,
+  isMobile: false,
+  isDesktop: false,
 }
 
 export default function reducer(state = initialState, action) {
@@ -27,6 +29,8 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         selectedPhaseKey: action.phaseKey,
+        isMobile: action.phaseKey ? !!action.isMobile : state.isMobile,
+        isDesktop: action.phaseKey ? !!action.isDesktop : state.isDesktop,
       }
     }
     default:

@@ -1,4 +1,5 @@
 import { css } from 'emotion'
+import { useRef, useEffect } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -16,6 +17,8 @@ const DesktopFlowChart = ({
 
   const selectedPhaseKey = useSelector((state) => state.main.selectedPhaseKey)
 
+  const isDesktop = useSelector((state) => state.main.isDesktop)
+
   const selectedPhasePucks = useSelector((state) => {
     if (!state.main.selectedPhaseOption) return null
 
@@ -27,6 +30,16 @@ const DesktopFlowChart = ({
     return s_pucks
   })
 
+  const BottomOfPhaseOptions = useRef(null)
+
+  const scrollToRef = (ref) =>
+    window.scrollTo({ top: ref.current.offsetTop + 350 })
+
+  useEffect(() => {
+    if (!selectedPhaseKey && selectedPhaseOption && isDesktop) {
+      scrollToRef(BottomOfPhaseOptions)
+    }
+  }, [selectedPhaseKey])
   return (
     <div
       className={css`
@@ -77,6 +90,7 @@ const DesktopFlowChart = ({
         </div>
         <img src="/images/Underwater_Hockey.png" width="1000px" alt="pool" />
       </div>
+      <div ref={BottomOfPhaseOptions} />
       {selectedPhaseOption && (
         <div>
           <h1>{toTitleCase(selectedPhaseOption.display_name)}</h1>
@@ -287,6 +301,7 @@ const DesktopFlowChart = ({
                           dispatch({
                             type: SELECT_PHASE_KEY,
                             phaseKey: pKey,
+                            isDesktop: true,
                           })
                         }
                       >
