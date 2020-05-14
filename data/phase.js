@@ -628,13 +628,6 @@ PhaseInfo.Phase_Keys = [
         active: true,
       },
       {
-        id: 89,
-        decision: 'Deal_With_Threats',
-        card: 'protect',
-        name: 'dump_pass',
-        active: false,
-      },
-      {
         id: 128,
         decision: 'Deal_With_Threats',
         card: 'protect',
