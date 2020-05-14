@@ -17,6 +17,10 @@ const DesktopFlowChart = ({
 
   const selectedPhaseKey = useSelector((state) => state.main.selectedPhaseKey)
 
+  const highlightedPhaseKey = useSelector(
+    (state) => state.main.highlightedPhaseKey
+  )
+
   const isDesktop = useSelector((state) => state.main.isDesktop)
 
   const selectedPhasePucks = useSelector((state) => {
@@ -284,7 +288,8 @@ const DesktopFlowChart = ({
                         type="button"
                         key={`${pKey.id}-card-entry`}
                         className={css`
-                          border: red solid 1px;
+                          border: red solid
+                            ${highlightedPhaseKey === pKey.id ? '4px' : '1px'};
                           background-color: ${pKey.active
                             ? 'rgba(255, 255, 255, 0.5)'
                             : 'rgba(125, 125, 125, 0.5)'};

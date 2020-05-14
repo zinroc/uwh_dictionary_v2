@@ -3,6 +3,7 @@ export const SELECT_PHASE_KEY = 'SELECT_PHASE_KEY'
 export const TOGGLE_CREDITS = 'TOGGLE_CREDITS'
 
 const initialState = {
+  highlightedPhaseKey: null,
   selectedPhaseOption: null,
   selectedPhaseKey: null,
   showCredits: false,
@@ -28,6 +29,10 @@ export default function reducer(state = initialState, action) {
     case SELECT_PHASE_KEY: {
       return {
         ...state,
+        highlightedPhaseKey:
+          action.phaseKey === null && state.selectedPhaseKey
+            ? state.selectedPhaseKey.id
+            : null,
         selectedPhaseKey: action.phaseKey,
         isMobile: action.phaseKey ? !!action.isMobile : state.isMobile,
         isDesktop: action.phaseKey ? !!action.isDesktop : state.isDesktop,

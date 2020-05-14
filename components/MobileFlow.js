@@ -15,6 +15,10 @@ const MobileFlowChart = ({
 
   const selectedPhaseKey = useSelector((state) => state.main.selectedPhaseKey)
 
+  const highlightedPhaseKey = useSelector(
+    (state) => state.main.highlightedPhaseKey
+  )
+
   const isMobile = useSelector((state) => state.main.isMobile)
 
   const BottomOfPhaseOptions = useRef(null)
@@ -82,13 +86,19 @@ const MobileFlowChart = ({
                         key={`${pk.id}-phase-key-mobile`}
                         disabled={!pk.active}
                         className={css`
+                          margin: 10px;
                           cursor: ${pk.active ? 'pointer' : 'not-allowed'};
                           display: block;
                           width: 100%;
                           font-size: 25px;
+                          ${highlightedPhaseKey === pk.id &&
+                          'border: solid black 3px;'}
                           background-color: rgba(255, 255, 255, 0.5);
                           :hover {
                             background-color: rgba(255, 217, 217, 0.75);
+                          }
+                          :disabled {
+                            background-color: grey;
                           }
                         `}
                         onClick={() => {
