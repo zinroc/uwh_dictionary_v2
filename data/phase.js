@@ -612,7 +612,6 @@ PhaseInfo.Phase_Keys = [
         card: 'protect',
         name: 'alternate_cw_ccw_curls',
         active: true,
-        height: '54px',
       },
       {
         id: 86,
@@ -640,6 +639,13 @@ PhaseInfo.Phase_Keys = [
         decision: 'Deal_With_Threats',
         card: 'protect',
         name: 'tic_tac',
+        active: true,
+      },
+      {
+        id: 133,
+        decision: 'Deal_With_Threats',
+        card: 'protect',
+        name: 'hip_gaurd',
         active: true,
       },
     ],
@@ -917,6 +923,13 @@ PhaseInfo.Phase_Keys = [
         card: 'left_option',
         name: 'around_the_world',
         active: false,
+      },
+      {
+        id: 132,
+        decision: 'head_on',
+        card: 'right_option',
+        name: 'butt_pass',
+        active: true,
       },
     ],
   },
@@ -1274,6 +1287,9 @@ PhaseInfo.Phase_Key_Values = [
   { phase_key: 130, value: 'double_back_windmill_flick.gif' },
   { phase_key: 18, value: 'barrel_roll_worlds.gif' },
   { phase_key: 32, value: 'reverseCobra.png' },
+  { phase_key: 132, value: 'butt_pass.gif' },
+  { phase_key: 133, value: 'hip_gaurd_2.gif' },
+  { phase_key: 133, value: 'hip_gaurd_2.png' },
 ]
 
 export default PhaseInfo
