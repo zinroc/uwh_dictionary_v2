@@ -905,8 +905,8 @@ PhaseInfo.Phase_Keys = [
       },
       {
         id: 130,
-        decision: 'head_on',
-        card: 'left_option',
+        decision: 'side_by_side',
+        card: 'cut_in_left',
         name: 'double_back_windmill_flick',
         active: true,
       },
