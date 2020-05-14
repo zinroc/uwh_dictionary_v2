@@ -737,7 +737,7 @@ PhaseInfo.Phase_Keys = [
         card: 'cut_in_left',
         name: 'windmill',
         active: true,
-        aliases: ['hook_push', 'the_9', 'halfmoon'],
+        aliases: ['hook_push', 'the_9', 'halfmoon', 'benson'],
       },
       {
         id: 43,
