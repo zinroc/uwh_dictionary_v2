@@ -815,7 +815,7 @@ PhaseInfo.Phase_Keys = [
         id: 65,
         decision: 'head_on',
         card: 'right_option',
-        name: 'Flick_Pass',
+        name: 'Lateral_pass',
         active: true,
       },
       {
@@ -922,6 +922,13 @@ PhaseInfo.Phase_Keys = [
         decision: 'head_on',
         card: 'right_option',
         name: 'butt_pass',
+        active: true,
+      },
+      {
+        id: 134,
+        decision: 'head_on',
+        card: 'left_option',
+        name: 'lateral_pass',
         active: true,
       },
     ],
@@ -1283,6 +1290,8 @@ PhaseInfo.Phase_Key_Values = [
   { phase_key: 132, value: 'butt_pass.gif' },
   { phase_key: 133, value: 'hip_gaurd_2.gif' },
   { phase_key: 133, value: 'hip_gaurd_2.png' },
+  { phase_key: 2, value: 'pinch_v_1st_person.gif' },
+  { phase_key: 134, value: 'lateral_pass.gif' },
 ]
 
 export default PhaseInfo
