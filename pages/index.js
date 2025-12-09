@@ -138,7 +138,9 @@ const Home = () => {
               </div>
             )}
           </div>
-          <h1> LUMA HEALTH DEMO </h1>
+          <h1> LUMA HEALTH DEMO 2026 </h1>
+          <h1> !----! </h1>
+
           <h3>
             {' '}
             If you know the name of the technique <br /> Search for it here:
