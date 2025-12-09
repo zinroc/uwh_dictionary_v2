@@ -7,7 +7,8 @@ class MyDocument extends Document {
         <Head>
           {process.env.METICULOUS_AI_TOKEN && (
             <script
-              data-project-token={process.env.METICULOUS_AI_TOKEN}
+              data-recording-token={process.env.METICULOUS_AI_TOKEN}
+              data-is-production-environment="false"
               src="https://snippet.meticulous.ai/v1/meticulous.js"
             />
           )}
